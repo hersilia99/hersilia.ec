@@ -2,12 +2,18 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hersilia Centro Psicologico Integral</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hersilia Fundación</title>
   <style>
-    /* Estilos generales */
-    body {
+    /* =======================
+       ESTILOS GENERALES
+    ======================== */
+    * {
+      box-sizing: border-box;
       margin: 0;
+      padding: 0;
+    }
+    body {
       font-family: Arial, sans-serif;
       background-color: #fff;
       color: #333;
@@ -15,44 +21,74 @@
     }
     a {
       text-decoration: none;
+      color: inherit;
     }
-    /* Header y Navegación */
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+    h1, h2, h3 {
+      font-weight: 600;
+    }
+
+    /* =======================
+       HEADER & NAVBAR
+    ======================== */
     header {
-      background-color: #0025FC;
+      background-color: #0025FC; /* Color principal */
       color: #fff;
       padding: 20px;
-      text-align: center;
     }
-    header h1 {
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+    .logo img {
+      width: 80px; /* Ajusta el tamaño según tu preferencia */
+      margin-right: 10px;
+    }
+    .logo h1 {
+      font-size: 1.8em;
       margin: 0;
-      font-size: 2em;
-    }
-    header p {
-      margin: 5px 0 0;
-      font-size: 1.2em;
-      font-weight: 300;
     }
     nav {
-      background-color: #0025FC;
       display: flex;
-      justify-content: center;
-      padding: 10px;
+      gap: 20px;
     }
     nav a {
       color: #fff;
-      margin: 0 15px;
-      font-size: 1.1em;
+      font-weight: 500;
+      transition: color 0.3s;
     }
-    /* Sección Hero */
+    nav a:hover {
+      color: #e0e0e0;
+    }
+
+    /* =======================
+       SECCIÓN HERO
+    ======================== */
     .hero {
-      background: url('https://via.placeholder.com/1200x400?text=Hersilia+Centro+Psicologico+Integral') no-repeat center center/cover;
+      position: relative;
       height: 400px;
+      background: url('https://via.placeholder.com/1600x800?text=Fondo+Hersilia') no-repeat center center/cover;
       display: flex;
       align-items: center;
       justify-content: center;
       color: #fff;
       text-align: center;
-      position: relative;
     }
     .hero::after {
       content: "";
@@ -60,16 +96,27 @@
       top: 0; left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 37, 252, 0.5);
+      background: rgba(0, 37, 252, 0.4); /* Superposición azul */
       z-index: 1;
     }
-    .hero h2 {
+    .hero-content {
       position: relative;
       z-index: 2;
-      font-size: 2.5em;
-      margin: 0;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
     }
-    /* Secciones */
+    .hero-content h2 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
+    .hero-content p {
+      font-size: 1.2em;
+    }
+
+    /* =======================
+       SECCIONES GENERALES
+    ======================== */
     section {
       padding: 40px 20px;
     }
@@ -77,41 +124,158 @@
       max-width: 1200px;
       margin: 0 auto;
     }
-    /* Sección Sobre Nosotros */
-    #nosotros p {
+    /* Título de sección */
+    section h2 {
+      font-size: 2em;
+      margin-bottom: 20px;
+      color: #0025FC; /* Título en color principal */
+      text-align: center;
+    }
+
+    /* =======================
+       SOBRE NOSOTROS
+    ======================== */
+    #nosotros .content {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      align-items: center;
+    }
+    #nosotros .content img {
+      flex: 1;
+      min-width: 300px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    #nosotros .text {
+      flex: 1;
+      min-width: 300px;
+    }
+    #nosotros .text h3 {
+      color: #333;
+      margin-bottom: 15px;
+      font-size: 1.5em;
+    }
+    #nosotros .text p {
       font-size: 1.1em;
       text-align: justify;
+      margin-bottom: 15px;
     }
-    /* Sección Servicios */
-    #servicios p {
+
+    /* =======================
+       MISIÓN, VISIÓN, VALORES
+    ======================== */
+    .mvv {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      gap: 30px;
+      margin-top: 30px;
+    }
+    .mvv-item {
+      background: #f2f2f2;
+      border-radius: 8px;
+      padding: 20px;
+      flex: 1;
+      min-width: 250px;
+      max-width: 350px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .mvv-item h3 {
+      margin-bottom: 10px;
+      color: #0025FC;
+    }
+    .mvv-item p {
+      text-align: justify;
+      font-size: 1em;
+    }
+
+    /* =======================
+       TESTIMONIOS
+    ======================== */
+    #testimonios {
+      background-color: #f9f9f9;
+    }
+    .testimonials-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: space-around;
+      margin-top: 20px;
+    }
+    .testimonial {
+      background: #fff;
+      border-radius: 8px;
+      padding: 20px;
+      flex: 1;
+      min-width: 250px;
+      max-width: 350px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      position: relative;
+    }
+    .testimonial p {
+      font-size: 1em;
+      text-align: justify;
+      margin-bottom: 10px;
+    }
+    .testimonial h4 {
       font-size: 1.1em;
+      font-weight: 600;
+      color: #0025FC;
     }
-    /* Sección Contacto */
-    #contacto h2 {
-      margin-bottom: 20px;
+
+    /* =======================
+       GALERÍA
+    ======================== */
+    #galeria .gallery-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .gallery-item {
+      overflow: hidden;
+      position: relative;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .gallery-item img {
+      transition: transform 0.3s ease;
+    }
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+
+    /* =======================
+       CONTACTO
+    ======================== */
+    #contacto .contact-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      margin-top: 20px;
     }
     .contact-info, .contact-form {
-      margin-bottom: 30px;
-    }
-    .contact-info h3, .contact-form h3 {
-      margin-top: 0;
+      flex: 1;
+      min-width: 300px;
     }
     .contact-info ul {
-      list-style: none;
-      padding: 0;
+      margin-top: 15px;
     }
     .contact-info li {
       margin-bottom: 10px;
+      font-size: 1.1em;
     }
     .contact-info a {
       color: #0025FC;
+      font-weight: 600;
     }
     .contact-form form {
       display: flex;
       flex-direction: column;
     }
     .contact-form input, .contact-form textarea {
-      padding: 10px;
+      padding: 12px;
       margin-bottom: 15px;
       border: 1px solid #ccc;
       border-radius: 4px;
@@ -120,7 +284,7 @@
     .contact-form button {
       background-color: #0025FC;
       color: #fff;
-      padding: 10px;
+      padding: 12px;
       border: none;
       border-radius: 4px;
       font-size: 1.1em;
@@ -130,110 +294,220 @@
     .contact-form button:hover {
       background-color: #001bb8;
     }
-    /* Footer */
+
+    /* =======================
+       FOOTER
+    ======================== */
     footer {
       background-color: #0025FC;
       color: #fff;
       text-align: center;
       padding: 20px;
+      margin-top: 40px;
     }
-    /* Responsive */
+    footer p {
+      margin: 5px 0;
+      font-size: 0.95em;
+    }
+
+    /* =======================
+       RESPONSIVE
+    ======================== */
     @media (max-width: 768px) {
-      nav a {
-        margin: 0 10px;
-        font-size: 1em;
+      .mvv {
+        flex-direction: column;
+        align-items: center;
       }
       .hero {
         height: 300px;
       }
-      .hero h2 {
+      .hero-content h2 {
         font-size: 2em;
       }
     }
   </style>
 </head>
 <body>
-  <!-- Header -->
+
+  <!-- HEADER -->
   <header>
-    <h1>Hersilia Centro Psicologico Integral</h1>
-    <p>Un legado de amor, un futuro de salud</p>
+    <div class="header-container">
+      <!-- LOGO -->
+      <div class="logo">
+        <!-- Reemplaza "ruta/de/tu/logo.png" con la ruta de la imagen que compartiste -->
+        <img src="ruta/de/tu/logo.png" alt="Logo Hersilia Fundación">
+        <h1>Hersilia Fundación</h1>
+      </div>
+      <!-- NAVBAR -->
+      <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#testimonios">Testimonios</a>
+        <a href="#galeria">Galería</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
   </header>
-  
-  <!-- Navegación -->
-  <nav>
-    <a href="#inicio">Inicio</a>
-    <a href="#nosotros">Nosotros</a>
-    <a href="#servicios">Servicios</a>
-    <a href="#contacto">Contacto</a>
-  </nav>
-  
-  <!-- Sección Hero -->
+
+  <!-- SECCIÓN HERO -->
   <section class="hero" id="inicio">
-    <h2>Bienvenido a Hersilia</h2>
+    <div class="hero-content">
+      <h2>Un legado de amor, un futuro de salud</h2>
+      <p>En Hersilia Fundación, nos dedicamos a brindar apoyo integral en salud mental, con profesionales comprometidos con tu bienestar y el de tu familia.</p>
+    </div>
   </section>
-  
-  <!-- Sección Sobre Nosotros -->
-  <section id="nosotros" class="container">
+
+  <!-- SECCIÓN SOBRE NOSOTROS -->
+  <section id="nosotros">
     <h2>Sobre Nosotros</h2>
-    <p>
-      En Hersilia Centro Psicologico Integral, nuestro compromiso es brindar un espacio de cuidado, acompañamiento y salud mental. 
-      Nuestro legado de amor se traduce en cada atención personalizada y en la búsqueda constante de un futuro de salud para nuestra comunidad.
-    </p>
-  </section>
-  
-  <!-- Sección Servicios -->
-  <section id="servicios" class="container">
-    <h2>Servicios</h2>
-    <p>
-      Ofrecemos una amplia gama de servicios en salud mental, incluyendo terapias individuales, de pareja y familiares. Nuestro equipo de profesionales está aquí para ayudarte a alcanzar el bienestar emocional y psicológico.
-    </p>
-  </section>
-  
-  <!-- Sección Contacto -->
-  <section id="contacto" class="container">
-    <h2>Contacto</h2>
-    <div class="contact-info">
-      <h3>Información de Contacto</h3>
-      <ul>
-        <li><strong>Teléfono:</strong> 0980901438</li>
-        <li>
-          <strong>Dirección:</strong> 
-          <a href="https://maps.app.goo.gl/rhNjp9K1jHXQhQoi6" target="_blank">Ver en mapa</a>
-        </li>
-        <li>
-          <strong>Facebook:</strong> 
-          <a href="https://www.facebook.com/centropsicologicointegralhersilia" target="_blank">
-            Centro Psicologico Integral Hersilia
-          </a>
-        </li>
-        <li>
-          <strong>Instagram:</strong> 
-          <a href="https://www.instagram.com/hersilia.ec" target="_blank">
-            @hersilia.ec
-          </a>
-        </li>
-        <li>
-          <strong>TikTok:</strong> 
-          <a href="https://www.tiktok.com/@hersilia.ec" target="_blank">
-            @hersilia.ec
-          </a>
-        </li>
-      </ul>
+    <div class="container content">
+      <img src="https://via.placeholder.com/600x400?text=Equipo+Hersilia" alt="Nuestro Equipo">
+      <div class="text">
+        <h3>Nuestra Historia</h3>
+        <p>
+          Hersilia Fundación nace con la visión de transformar vidas a través de la atención psicológica y el acompañamiento 
+          emocional. Durante años, hemos desarrollado programas de salud mental dirigidos a diferentes grupos, como niños, 
+          adolescentes, adultos y personas de la tercera edad.
+        </p>
+        <p>
+          Contamos con un equipo multidisciplinario de profesionales con experiencia en terapia individual, de pareja y 
+          familiar, así como en talleres de desarrollo personal y capacitación en salud mental.
+        </p>
+      </div>
     </div>
-    <div class="contact-form">
-      <h3>Envíanos un mensaje</h3>
-      <form action="#" method="POST">
-        <input type="text" name="name" placeholder="Nombre completo" required />
-        <input type="email" name="email" placeholder="Correo electrónico" required />
-        <textarea name="message" placeholder="Tu mensaje" rows="5" required></textarea>
-        <button type="submit">Enviar Mensaje</button>
-      </form>
+
+    <!-- MISIÓN, VISIÓN Y VALORES -->
+    <div class="container mvv">
+      <div class="mvv-item">
+        <h3>Misión</h3>
+        <p>
+          Brindar atención psicológica de calidad, promoviendo la salud mental y el bienestar integral de las personas a 
+          través de un enfoque humano, ético y comprometido con la comunidad.
+        </p>
+      </div>
+      <div class="mvv-item">
+        <h3>Visión</h3>
+        <p>
+          Ser un referente a nivel nacional en la prevención, cuidado y promoción de la salud mental, impactando de manera 
+          positiva en la calidad de vida de las personas y sus familias.
+        </p>
+      </div>
+      <div class="mvv-item">
+        <h3>Valores</h3>
+        <p>
+          <strong>Compasión, Respeto, Honestidad y Excelencia</strong> son los pilares que guían nuestro quehacer diario, 
+          asegurando un servicio centrado en la persona y en su bienestar integral.
+        </p>
+      </div>
     </div>
   </section>
-  
-  <!-- Footer -->
+
+  <!-- SECCIÓN TESTIMONIOS -->
+  <section id="testimonios">
+    <div class="container">
+      <h2>Testimonios</h2>
+      <div class="testimonials-container">
+        <div class="testimonial">
+          <p>"Gracias a Hersilia Fundación, encontré la ayuda que necesitaba para superar mis miedos y recuperar mi confianza."</p>
+          <h4>- María, 28 años</h4>
+        </div>
+        <div class="testimonial">
+          <p>"El acompañamiento psicológico fue fundamental para mejorar la comunicación en mi familia. ¡Lo recomiendo al 100%!"</p>
+          <h4>- Carlos, 45 años</h4>
+        </div>
+        <div class="testimonial">
+          <p>"Excelente equipo de profesionales, siempre dispuestos a escuchar y a brindar la mejor orientación."</p>
+          <h4>- Andrea, 34 años</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN GALERÍA -->
+  <section id="galeria">
+    <div class="container">
+      <h2>Galería</h2>
+      <p style="text-align:center; margin-bottom: 20px;">
+        Descubre algunos momentos que hemos compartido en nuestros talleres, eventos y consultas.
+      </p>
+      <div class="gallery-container">
+        <div class="gallery-item">
+          <img src="https://via.placeholder.com/400x300?text=Evento+1" alt="Evento 1">
+        </div>
+        <div class="gallery-item">
+          <img src="https://via.placeholder.com/400x300?text=Evento+2" alt="Evento 2">
+        </div>
+        <div class="gallery-item">
+          <img src="https://via.placeholder.com/400x300?text=Evento+3" alt="Evento 3">
+        </div>
+        <div class="gallery-item">
+          <img src="https://via.placeholder.com/400x300?text=Evento+4" alt="Evento 4">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN CONTACTO -->
+  <section id="contacto">
+    <div class="container">
+      <h2>Contacto</h2>
+      <div class="contact-wrapper">
+        <!-- Información de contacto -->
+        <div class="contact-info">
+          <h3>Información de contacto</h3>
+          <ul>
+            <li><strong>Teléfono:</strong> 0980901438</li>
+            <li>
+              <strong>Dirección:</strong>
+              <a href="https://maps.app.goo.gl/rhNjp9K1jHXQhQoi6" target="_blank">
+                Ver en mapa
+              </a>
+            </li>
+            <li>
+              <strong>Facebook:</strong>
+              <a href="https://www.facebook.com/centropsicologicointegralhersilia" target="_blank">
+                Centro Psicologico Integral Hersilia
+              </a>
+            </li>
+            <li>
+              <strong>Instagram:</strong>
+              <a href="https://www.instagram.com/hersilia.ec" target="_blank">
+                @hersilia.ec
+              </a>
+            </li>
+            <li>
+              <strong>TikTok:</strong>
+              <a href="https://www.tiktok.com/@hersilia.ec" target="_blank">
+                @hersilia.ec
+              </a>
+            </li>
+            <li>
+              <strong>Sitio web:</strong>
+              <a href="http://www.hersilia.ec.com" target="_blank">
+                www.hersilia.ec.com
+              </a>
+            </li>
+          </ul>
+        </div>
+        <!-- Formulario de contacto -->
+        <div class="contact-form">
+          <h3>Envíanos un mensaje</h3>
+          <form action="#" method="POST">
+            <input type="text" name="name" placeholder="Nombre completo" required />
+            <input type="email" name="email" placeholder="Correo electrónico" required />
+            <textarea name="message" rows="5" placeholder="Tu mensaje" required></textarea>
+            <button type="submit">Enviar Mensaje</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
   <footer>
-    <p>&copy; 2025 Hersilia Centro Psicologico Integral. Todos los derechos reservados.</p>
+    <p>&copy; 2025 Hersilia Fundación. Todos los derechos reservados.</p>
+    <p>Un legado de amor, un futuro de salud.</p>
   </footer>
+
 </body>
 </html>
